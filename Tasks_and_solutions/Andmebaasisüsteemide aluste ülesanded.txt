@@ -1,0 +1,78 @@
+﻿yl21
+Klient soovib tellida online raamatupoe avamiseks infosüsteemi. Sinu ülesandeks on luua andmemudel, mõelda välja, millised peavad olema tabelid, väljad ja tabelitevahelised seosed. Müügil olev kaup liigitub kolmeks: uus raamat, kasutatud raamat, e-raamat.
+
+
+Süsteemis peaks olema sellised vaated ja funktsioonid:
+        Raamatute nimekiri. Vaikimis ilmuvad ainult saadaolevad raamatud. Ühe raamatu kohta: pealkiri, autor, pilt, hind. Saab filtreerida keele, autori, ilmumisaasta, liigi järgi. Saab otsida pealkirjas esinevate sõnade, autori ja sisukokkuvõtte järgi.
+        Ühe raamatu vaade. Näeb raamatu andmeid: pealkiri, keel, autor, ilmumisaasta, lehekülgede arv, liik, sisukokkuvõte, pilt, saadavus, hind. Saab esitada tellimuse, kui raamat on saadaval.
+        Tellimise vaade. Klient saab vormistada tellimuse. Saab sisestada või üle kontrollida oma andmed: nimi, telefon, e-mail, postiaadress. Maksmine toimub pangalingi kaudu.
+        Kasutaja loomise vaade. Kasutaja saab sisestada andmed: kasutajanimi, parool, nimi, telefon, e-mail, postiaadress.
+        Kasutaja sisselogmise vaade.
+
+
+Tabelite ja väljade nimetamisel kasutage inglise keelt. 
+Tabelite nimetamisel kasutage eesliidet yl21_
+
+
+Genereeri andmebaasi test-andmed - https://www.mockaroo.com/
+
+
+Impordi sql-fail andmebaasi serverisse.
+
+
+Koosta päringud, mida see veebipood reaalselt kasutab.
+1. Raamatute nimekiri: kõikide raamatute nimekiri. SELECT * FROM tabel;
+2. Raamatute nimekiri: alates 2010 aastast välja antud raamatud, mis on kasutamata ja ei ole e-raamatud. Sorteerida pealkirja järgi tähestikulises järjekorras.
+                SELECT * FROM tabel WHERE tingimus1 AND tinigmus2 ORDER BY veerg;
+(tulemus 113 kirjet)
+3. Raamatute nimekiri: raamatud, mis on ilmunud enne 1970. aastat on kasutatud ja mille hind on väiksem kui 20 eurot. Väljastada ainult pealkiri, aasta, hind ja tüüp veerud. (tulemus 2 kirjet)
+4. Täidetud tellimuste arv aasta kaupa. Väljasta ainult tellimuse aasta ja tellimuste arv. Tulemuse veeru pealkirjaks pane “Aasta” ja “Tellimuste arv” (ei ole vaja andmebaasis tabelit muuta!). COUNT(), GROUP BY, DATE või YEAR, AS (tulemus 4 kirjet)
+5. Täidetud tellimuste arv aasta kaupa ja müükide summa. Pane veergudele ilusad pealkirjad ja ümarda summa kahe komakohani. LEFT JOIN (tulemus summad 5814.08, 18676.06, 21211.61, 23661.34)
+6. Täidetud tellimuste arv viimase aasta jooksul ja müükide summa.
+7. Väljastada kliendid viimase aasta jooksul tehtud tellimuste põhjal kulutatud summa järgi.
+8. Viimase aasta top 10 enim müüdud raamatud. LIMIT
+9. Raamatute nimekiri, mille hind on keskmisest kõrgem. (1096)
+
+
+yl22
+Koosta päringud raamatupoe kohta.
+1. Raamatute tabelist kogu laoväärtus. aritmeetika operaatorid (17170638.41)
+2. Kõige odavam ja kõige kallim raamat ning raamatu hindade keskmine.  (1.04, 59.98, 30.53) 
+3. Kõige kallim kasutatud raamat. (59.87)
+4. Tüübi kaupa raamatute keskmine hind ja kogus. CASE väljundi vormindamiseks
+Väljund järgmine:
+Tüüp
+	Keskmine hind
+	Hulk
+	Uus
+	31.64
+	721
+	Kasutatud
+	29.15
+	726
+	E-raamat
+	30.78
+	779
+	
+
+5. Kasutatud raamatud, mis on kallimad kui uute raamatute keskmine hind. Väljasta pealkiri, hind ja tüüp ja järjesta hinna järgi kasvavalt. (318 kirjet)
+6. Raamatud, mis on kallimad kui enim-müüdud autori raamatute keskmine hind. Alampäring. (952 kirjet)
+7. Paarisarvulise väljaandmisaastaga raamatud. Matemaatika funktsioonid. (1163 kirjet)
+8. Keelte kaupa vastavas keeles kirjutatud raamatute hulk ja keel. Järejesta hulk kahanevalt. (top3: 38 Italian, 36 Finnish, 35 Hungarian)
+
+
+
+
+________________
+
+
+yl23
+
+
+1) Lisa kasutajate tabelisse uus kasutaja ja kasuta enda andmeid. INSERT
+2) Uuenda esimese raamatu andmeid ja pane keeleks Eesti (id = 1). UPDATE
+3) Kustuta tellimuste tabelist viimane kirje (id = 2300). DELETE
+4) Lisa kasutajate tabelisse 5 uut kasutajat ühe päringuga.
+5) Lisa tellimuste tabelisse uus tellimus, kus tellitakse raamat, mille nimi on Vendetta ja mida tellib klient, kell kasutajanimi on mcage1o. Kasuta alampäringuid.
+6) Uuenda kõiki raamatuid: tõsta hinda 5% ja vähenda lk arvu 5 võrra.
+7) Kustuta kõik autorid, kes ei ole kirjutanud ühtki raamatut. Kasuta alampäringuid. Testi enne Select-lausega. (Järgi peaks jääma 1086 autorit)
